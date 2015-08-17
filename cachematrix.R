@@ -13,13 +13,13 @@
 makeCacheMatrix <- function(x = matrix()) {
   inverse_value <- NULL
   set <- function(y) {
-    x <<- y                                 ##redefine the scope
-    inverse_value <<- NULL                  ##redefine the scope
+    x <<- y                                 ##redefining the scope
+    inverse_value <<- NULL                  ##redefining the scope
   }
-  get <- function() x                       ##assign x to get
+  get <- function() x                       ##assigning x to get
   setinverse <- function(inverse_val) inverse_value <<- inverse_val 
   getinverse <- function() inverse_value
-  list(set = set, get = get,                ##create the list and return it
+  list(set = set, get = get,                ##creating the list and return it
        setinverse = setinverse,
        getinverse = getinverse)
 }
@@ -32,14 +32,14 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
 ## Return a matrix that is the inverse of 'x'
-  inverse_value <- x$getinverse()        ##get the inverse from cache
-  if(!is.null(inverse_value)) {          ##check if the inverse is null
+  inverse_value <- x$getinverse()        ##getting the inverse from cache
+  if(!is.null(inverse_value)) {          ##checking if the inverse is null
     message("getting cached data")
     return(inverse_value)
   }
   new_data <- x$get()                    ##if null then get the new matrix
   library(MASS)
-  inverse_value <- ginv(new_data, ...)   ##compute the inverse freshly
-  x$setinverse(inverse_value)            ##set the inverse back to cache and return
+  inverse_value <- ginv(new_data, ...)   ##computing the inverse freshly
+  x$setinverse(inverse_value)            ##setting the inverse back to cache and return
   inverse_value
 }

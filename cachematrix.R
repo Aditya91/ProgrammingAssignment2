@@ -3,8 +3,7 @@
 ## written to account for both square and non-square matrices. But it has
 ## been assumed that the matrix is invertible. The second function computes
 ## the inverse of the special matrix obtained from the first function and also
-## checks if the inverse is already present in the cache, to improve the speed
-## of computation.
+## checks if the inverse is already present in the cache, to improve the speed of computation.
 
 ## The function makeCacheMatrix accepts a matrix X as input and returns a list
 ## of four elements each of which is a matrix- set, get, setinverse and getinverse
